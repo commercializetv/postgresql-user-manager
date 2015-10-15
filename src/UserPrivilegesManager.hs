@@ -65,8 +65,8 @@ doTransferOwnership connectInfo unameOld unameNew force
     | unameOld `elem` ["rdsdb"] = putStrLn "Transfering this user is prohibited."
     | force = transferOwnership connectInfo unameOld unameNew
     | otherwise = do
-        putStrLn $ 
-            "About to transfer all ownerships of " ++ 
+        putStrLn $
+            "About to transfer all ownerships of " ++
             unameOld ++ " to " ++ unameNew ++ ". Are you sure? (Y/N)"
         confirm <- getChar
         when (toUpper confirm == 'Y') $ transferOwnership connectInfo unameOld unameNew
@@ -76,7 +76,7 @@ doDropUser connectInfo uname force
     | uname `elem` ["rdsdb"] = putStrLn "Deleting this user is prohibited."
     | force = dropUser connectInfo uname
     | otherwise = do
-        putStrLn $ 
+        putStrLn $
             "About to remove " ++ uname ++ ". Are you sure? (Y/N)"
         confirm <- getChar
         when (toUpper confirm == 'Y') $ dropUser connectInfo uname
@@ -86,8 +86,8 @@ main :: IO ()
 main = do
     opts <- cmdArgsRun CA.myModes
     connectInfo <- UT.readConnectInfo
-    usersConfig <- UT.readUsersConfig    
-    case opts of 
+    usersConfig <- UT.readUsersConfig
+    case opts of
         CA.UpdateMode schemaName ->
             doUpdateAll connectInfo (toList usersConfig) (fromMaybe "%" schemaName)
         CA.FullUpdateMode schemaName ->

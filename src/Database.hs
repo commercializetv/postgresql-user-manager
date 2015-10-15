@@ -113,7 +113,7 @@ revokeAllUsersPermissionIfExists db schemaPattern uname = do
                 |] 
 
 grantUserPermissionIfExists :: Connection -> SchemaPattern -> User -> Permission -> IO ()
-grantUserPermissionIfExists db schemaPattern (User uname _) 
+grantUserPermissionIfExists db schemaPattern (User uname _)
     (Permission uschemaPermission utablePermission uviewPermission uschemaPattern utablePattern uviewPattern) = do
         exist <- doesUserExist db uname
         when exist $ do

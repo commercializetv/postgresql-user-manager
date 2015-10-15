@@ -43,7 +43,7 @@ Allow administrator to easily:
     Show help
     $ .cabal-sandbox/bin/user-privileges-manager --help
 
-    To FULLY refresh all user privileges: (including remove all current privileges 
+    To FULLY refresh all user privileges: (including remove all current privileges
     and update with the new privileges)
     $ .cabal-sandbox/bin/user-privileges-manager fullupdatemode
 
