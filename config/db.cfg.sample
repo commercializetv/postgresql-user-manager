@@ -1,5 +1,5 @@
 host: ""
-port: 
+port:
 user: ""
 password: ""
 database: ""

@@ -110,7 +110,7 @@ revokeAllUsersPermissionIfExists db schemaPattern uname = do
         unless (null uviews) $
             tryExec $ execute_ db [qc|
                 {revokeQuery VIEW uname uviews "ALL"}
-                |] 
+                |]
 
 grantUserPermissionIfExists :: Connection -> SchemaPattern -> User -> Permission -> IO ()
 grantUserPermissionIfExists db schemaPattern (User uname _)
